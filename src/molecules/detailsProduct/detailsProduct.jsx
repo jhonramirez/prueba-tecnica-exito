@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Heading, Icon, QuantityProduct } from "../../atoms/index";
-import { useSelector } from "react-redux";
+import { Button, Heading, Icon } from "../../atoms/index";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
+import { addToProduct } from "../../store/slices/productSlice";
 
 export const DetailsProduct = () => {
-  const format = new Intl.NumberFormat('es-ES');
+  const format = new Intl.NumberFormat("es-ES");
   let history = useHistory();
   const { id } = useParams();
   const [selectedProduct, setSelectedProduct] = useState();
-  const productList = useSelector(
-    (product) => product.productReducer.productList
-  );
+  const productList = useSelector((state) => state.productReducer.products);
+
+  const dispatch = useDispatch();
+  const addToProducts = (product) => {
+    dispatch(addToProduct({ ...product }));
+  };
 
   useEffect(() => {
     const filteredProduct = productList.filter((e) => {
@@ -42,35 +46,24 @@ export const DetailsProduct = () => {
                   <Icon name="FiStar" />
                   <Icon name="FiStar" />
                   <label htmlFor={selectedProduct.id}>
-                    (1 opinión del cliente)
+                    ({selectedProduct.rating.count} opinión del cliente)
                   </label>
                 </div>
                 <h3>
                   {" "}
                   $
                   {format.format(
-                    selectedProduct.price * selectedProduct.quantity
+                    selectedProduct.price
                   )}
                 </h3>
-                <QuantityProduct
-                  id={selectedProduct.id}
-                  price={selectedProduct.price}
-                  quantity={selectedProduct.quantity}
+                <Button
+                  label="Agregar"
+                  onClick={() => addToProducts(selectedProduct)}
+                  className="button"
                 />
                 <div className="desc">
                   <h4>DESCRIPCIÓN</h4>
-                  <p>{selectedProduct.desc}</p>
-                  <h4>DETALLE</h4>
-                  {selectedProduct.details.map((details, i) => (
-                    <ul key={i}>
-                      <li>
-                        <p>
-                          {" "}
-                          {details.title}: {details.desc}{" "}
-                        </p>
-                      </li>
-                    </ul>
-                  ))}
+                  <p>{selectedProduct.description}</p>
                 </div>
               </section>
             </section>

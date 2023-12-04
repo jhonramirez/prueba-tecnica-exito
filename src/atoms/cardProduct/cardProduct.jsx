@@ -1,34 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "../button/button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToProduct } from "../../store/slices/productSlice";
 
 export const CardProduct = ({ products, onOpenImage }) => {
-  const format = new Intl.NumberFormat('es-ES');
+  const format = new Intl.NumberFormat("es-ES");
   const dispatch = useDispatch();
-  const addToProducts = (id, title, price, image, desc, details) => {
-    dispatch(addToProduct({ id, title, price, image, desc, details }));
+  const addToProducts = (product) => {
+    dispatch(addToProduct({ ...product }));
   };
   return (
     <section className="product_items">
       {products.map((product) => (
         <article className="box" key={product.id}>
           <figure className="img">
+          <Link to={`/product/${product.id}`}>
             <img src={product.image} alt={product.title} />
+            </Link>
             <div className="overlay">
               <Button
                 iconName="FiShoppingBag"
                 className="button"
-                onClick={() =>
-                  addToProducts(
-                    product.id,
-                    product.title,
-                    product.price,
-                    product.image,
-                    product.desc,
-                    product.details
-                  )
-                }
+                onClick={() => addToProducts(product)}
               />
               <Button
                 iconName="FiSearch"
@@ -39,7 +33,7 @@ export const CardProduct = ({ products, onOpenImage }) => {
           </figure>
           <aside className="details">
             <h3>{product.title}</h3>
-            <p>{product.desc}</p>
+            <p>{product.description}</p>
             <h4>Precio: ${format.format(product.price)}</h4>
           </aside>
         </article>

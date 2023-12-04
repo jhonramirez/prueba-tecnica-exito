@@ -4,9 +4,13 @@ export const productSlice = createSlice({
   name: "product",
   initialState: {
     productList: [],
+    products: [],
     totalQuantity: 0,
   },
   reducers: {
+    addAllProducts(state, action) {
+      state.products = action.payload;
+    },
     addToProduct(state, action) {
       const newProduct = action.payload;
 
@@ -22,11 +26,11 @@ export const productSlice = createSlice({
           id: newProduct.id,
           price: parseFloat(newProduct.price, 10),
           quantity: 1,
+          rating: newProduct.rating,
           totalPrice: parseFloat(newProduct.price, 10),
           title: newProduct.title,
           image: newProduct.image,
-          desc: newProduct.desc,
-          details: newProduct.details,
+          description: newProduct.description,
         });
         state.totalQuantity++;
       }
@@ -63,5 +67,9 @@ export const productSlice = createSlice({
   },
 });
 
-export const { addToProduct, removeFromProduct, removeAllFromProduct } =
-  productSlice.actions;
+export const {
+  addToProduct,
+  removeFromProduct,
+  removeAllFromProduct,
+  addAllProducts,
+} = productSlice.actions;

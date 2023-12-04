@@ -1,8 +1,7 @@
 import React from "react";
-import { products } from "../../assets/data/data";
 import { Button } from "../../atoms";
 
-export const FilterProduct = ({ setFilteredProducts }) => {
+export const FilterProduct = ({ setFilteredProducts, products }) => {
   const allCategories = [
     "all",
     ...new Set(products.map((product) => product.category)),

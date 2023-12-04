@@ -5,10 +5,10 @@
 @import "responsive";
 @import "../atoms/cart/cart.scss";
 @import "../molecules/detailsProduct/detailsProduct.scss";
+@import "../organism/home/home.scss";
 @import "../atoms/navbar/navbar.scss";
 @import "../molecules/filterProduct/filterProduct.scss";
 @import "../organism/header/header.scss";
-@import "../organism//search/search.scss";
 
 body {
   background: $light;

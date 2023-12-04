@@ -1,12 +1,11 @@
 import { Heading } from "../../atoms/index";
-import { products } from "../../assets/data/data";
 import { ProductItem } from "./productItem";
 
-export const Product = ({ titleHeading, descHeading }) => {
+export const Product = ({ titleHeading, descHeading, products }) => {
   return (
-      <section className="product">
-        <Heading title={titleHeading} desc={descHeading} />
-        <ProductItem products={products} />
-      </section>
+    <section className="product">
+      <Heading title={titleHeading} desc={descHeading} />
+      <ProductItem products={products} />
+    </section>
   );
 };
