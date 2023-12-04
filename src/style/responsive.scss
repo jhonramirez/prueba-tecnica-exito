@@ -1,0 +1,17 @@
+@include media-md {
+  .product {
+    .product_items {
+      @include grid(repeat(2, 1fr), 30px);
+    }
+  }
+
+  .detailsproduct .details_content {
+    @include flex(none, none, column);
+    &_img{
+      width: 50%;
+    }
+    &_detail{
+      width: 50%;
+    }
+  }
+}

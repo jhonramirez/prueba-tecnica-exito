@@ -1,0 +1,52 @@
+.detailsproduct {
+  .details {
+    &_title {
+      margin: 30px 0;
+    }
+    &_content {
+      @include flex(none, none, none);
+      &_img {
+        @include width(100%, 100%, none, none, none, none);
+        margin-right: 50px;
+        img {
+          @include width(100%, 100%, none, none, none, none);
+        }
+      }
+      i {
+        color: $primary;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      &_qty {
+        display: flex;
+        align-items: center;
+      }
+      &_detail {
+        width: 100%;
+        h1 {
+          font-size: 30px;
+        }
+        .rating {
+          @include flex(center, none, none);
+          color: $primary;
+          margin: 20px 0;
+          label {
+            margin-left: 0 15px;
+            color: $text;
+            font-size: $md;
+          }
+        }
+
+        .desc {
+          h4 {
+            margin-top: 40px;
+          }
+          p {
+            color: $dark;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}

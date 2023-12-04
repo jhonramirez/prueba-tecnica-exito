@@ -1,0 +1,24 @@
+article {
+  .details {
+    &_content {
+      &_img {
+        @include width(40%, 100%, none, none, none, none);
+        img {
+          @include width(100%, 100%, none, none, none, none);
+        }
+      }
+      &_detail {
+        width: 50%;
+        .rating {
+          color: $primary;
+          margin: 20px 0;
+          label {
+            margin-left: 0 15px;
+            color: $text;
+            font-size: $md;
+          }
+        }
+      }
+    }
+  }
+}

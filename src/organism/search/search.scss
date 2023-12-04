@@ -1,0 +1,30 @@
+.containerSearch {
+  @include width(60%, auto, 0, 0, 0, 0);
+  @include pa_ma(5% 0 0 0, none);
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+
+  .search {
+    @include width(100%, none, $white, $dark, 40px, 10px);
+    @include flex(center, center, center);
+    @include shadow(-5px 9px 20px 0px rgb(23 45 89 / 3%));
+
+    hr {
+      @include default;
+      background: rgba(#000000, 0.2);
+      height: $lg;
+      width: 0.1rem;
+      margin: 5px;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      font-size: $md;
+    }
+    .heIcon {
+      font-size: $xl-2;
+    }
+  }
+}

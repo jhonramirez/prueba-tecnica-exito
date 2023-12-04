@@ -1,0 +1,10 @@
+.filterButtons {
+  @include flex(center, center, center);
+  @include pa_ma($xl $xl-2, none);
+  z-index: 100;
+  .category {
+    @include flex(center, center, center);
+    gap: 1rem;
+    width: 50%;
+  }
+}
