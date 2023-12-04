@@ -15,7 +15,7 @@ export const Home = () => {
       dispatch(addAllProducts(productsNew));
     };
     getProducts();
-  }, []);
+  }, [dispatch]);
 
   const [searchProduct, setSearchProduct] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Button, Heading, Icon } from "../../atoms/index";
+import { Button, Heading } from "../../atoms/index";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { addToProduct } from "../../store/slices/productSlice";
+import { MdStar, MdStarBorder } from "react-icons/md";
+import Rating from "react-rating";
 
 export const DetailsProduct = () => {
   const format = new Intl.NumberFormat("es-ES");
@@ -40,28 +42,24 @@ export const DetailsProduct = () => {
               <section className="details_content_detail">
                 <h1>{selectedProduct.title}</h1>
                 <div className="rating">
-                  <Icon name="FiStar" />
-                  <Icon name="FiStar" />
-                  <Icon name="FiStar" />
-                  <Icon name="FiStar" />
-                  <Icon name="FiStar" />
+                  <Rating
+                    initialRating={selectedProduct.rating.rate}
+                    emptySymbol={<MdStarBorder />}
+                    fullSymbol={<MdStar />}
+                  />
                   <label htmlFor={selectedProduct.id}>
                     ({selectedProduct.rating.count} opinión del cliente)
                   </label>
                 </div>
-                <h3>
-                  {" "}
-                  $
-                  {format.format(
-                    selectedProduct.price
-                  )}
-                </h3>
+                <h3> ${format.format(selectedProduct.price)}</h3>
                 <Button
                   label="Agregar"
                   onClick={() => addToProducts(selectedProduct)}
                   className="button"
                 />
                 <div className="desc">
+                  <h4>CATEGORIA</h4>
+                  <p>{selectedProduct.category}</p>
                   <h4>DESCRIPCIÓN</h4>
                   <p>{selectedProduct.description}</p>
                 </div>
