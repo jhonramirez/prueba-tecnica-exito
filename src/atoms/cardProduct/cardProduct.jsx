@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../button/button";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToProduct } from "../../store/slices/productSlice";
 
 export const CardProduct = ({ products, onOpenImage }) => {

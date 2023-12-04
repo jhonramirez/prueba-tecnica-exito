@@ -43,6 +43,7 @@ export const DetailsProduct = () => {
                 <h1>{selectedProduct.title}</h1>
                 <div className="rating">
                   <Rating
+                    readonly
                     initialRating={selectedProduct.rating.rate}
                     emptySymbol={<MdStarBorder />}
                     fullSymbol={<MdStar />}

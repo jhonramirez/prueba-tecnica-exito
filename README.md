@@ -17,4 +17,4 @@ Mobile First
 
 ## El proyecto se desplego en un Bucket de S3 en AWS
 
-## URL 
+## URL `http://prueba-tecnica-exito.s3-website-us-east-1.amazonaws.com/`
